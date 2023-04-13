@@ -4,8 +4,6 @@ export default {
   props: ["store"],
   data() {
     return {
-      // headRW: ['Store', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', 'DL Total'],
-      // store: [{ name: "Seattle", min: 23, max: 65, avg: 6.3 }, { name: "Richland", min: 23, max: 65, avg: 6.3 }],
       columns: new Array(14).fill(0),
       colTotal: new Array(14).fill(0),
       totalDT: 0,
@@ -16,41 +14,71 @@ export default {
       // console.log('columns:', this.columns);
       let randCus = 0;
       this.totalDT = 0;
-      for (let i in this.columns) {
-        randCus = Math.floor(Math.random() * (storeData.max - storeData.min + 1)) + storeData.min;
-        this.columns[i] = Math.floor(randCus * storeData.avg);
 
+      // filling columns array with data for a city
+      for (let i in this.columns) {
+
+        //get random number of customers
+        randCus = Math.floor(Math.random() * (storeData.max - storeData.min + 1)) + storeData.min;
+        //console.log('randCus: ', randCus);
+
+        // get hourly cookie sales
+        this.columns[i] = Math.floor(randCus * storeData.avg);
+        //console.log('colums[i]: ', this.columns[i]);
+
+        //daily loacation total 
         this.totalDT += this.columns[i];
-        // console.log('totalDT:--',this.totalDT)
+        console.log('totalDT:--',this.totalDT)
         this.colTotal[i] += this.columns[i];
+        console.log('colTotal[i]:', this.colTotal[i]);
+
       }
-      // for (let i in this.columns) {
-      //   // console.log('colTotal:', this.colTotal);
-      //   this.colTotal[i] += this.columns[i];
-      // }
     },
-  },
-  // mounted() {
-  //   // console.log('props:-----', this.store);
-  //   for (let i in this.store) {
-  //     this.getRandomCust(this.store[i]);
-  //   }
-  // }
+    totalColumns: function (arr) {
+      for (let i in arr) {
+        // console.log('colTotal:', this.colTotal);
+        this.colTotal[i] += arr[i];
+      }
+    }
+  }
 }
 
 </script>
 
 <template>
-  
+  <!-- <tr v-for="(element,  idx) in store"> -->
+  <!-- {{ element.name }} , {{ idx }} -->
   <tr v-for="elm in store">
     {{ getRandomCust(elm) }}
+    <!-- {{ totalColumns(columns) }} -->
     <th>{{ elm.name }}</th>
+    <!-- <td v-for="(element,  idx) in columns">{{ idx }} </td> -->
     <td v-for="element in columns">{{ element }}</td>
     <td>{{ totalDT }}</td>
   </tr>
-  
+
   <tr>
     <th>Totals</th>
     <td v-for="element in colTotal">{{ element }}</td>
+    <!-- <td v-for="(element,  idx) in colTotal">{{ idx }}</td> -->
   </tr>
 </template>
+
+<style scoped>
+tr {
+  font-family: 'Varela Round', sans-serif;
+  border: 1px double #020005;
+  padding: 8px;
+  color: plum;
+}
+
+th {
+  font-weight: bold;
+  background-color: #501583;
+}
+
+td {
+  text-align: center;
+}
+</style>
+
