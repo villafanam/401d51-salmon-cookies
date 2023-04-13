@@ -28,7 +28,8 @@ export default {
       <th v-for="element in headRW">{{ element }}</th>
     </tr>
 
-    <StoreRow v-for="element in store" :store="element" />
+    <!-- <StoreRow v-for="element in store" :store="element" /> -->
+    <StoreRow  :store="store" />
 
   </table>
 </template>

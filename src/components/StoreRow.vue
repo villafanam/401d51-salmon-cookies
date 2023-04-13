@@ -11,35 +11,46 @@ export default {
       totalDT: 0,
     }
   },
-  computed: {
-    getRandomCust: function () {
+  methods: {
+    getRandomCust: function (storeData) {
       // console.log('columns:', this.columns);
       let randCus = 0;
-      // this.totalDT = 0;
+      this.totalDT = 0;
       for (let i in this.columns) {
-        randCus = Math.floor(Math.random() * (this.store.max - this.store.min + 1)) + this.store.min;
-        this.columns[i] = Math.floor(randCus * this.store.avg);
+        randCus = Math.floor(Math.random() * (storeData.max - storeData.min + 1)) + storeData.min;
+        this.columns[i] = Math.floor(randCus * storeData.avg);
+
         this.totalDT += this.columns[i];
-        //this.colTotal[i] += this.columns[i];
+        // console.log('totalDT:--',this.totalDT)
+        this.colTotal[i] += this.columns[i];
       }
-      // console.log('columns:', this.columns);
+      // for (let i in this.columns) {
+      //   // console.log('colTotal:', this.colTotal);
+      //   this.colTotal[i] += this.columns[i];
+      // }
     },
   },
-  // mounted(){
+  // mounted() {
   //   // console.log('props:-----', this.store);
-  //   this.getRandomCust();
+  //   for (let i in this.store) {
+  //     this.getRandomCust(this.store[i]);
+  //   }
   // }
 }
 
 </script>
 
 <template>
-  {{ getRandomCust }}
-
-  <tr>
-    <th>{{ store.name }}</th>
+  
+  <tr v-for="elm in store">
+    {{ getRandomCust(elm) }}
+    <th>{{ elm.name }}</th>
     <td v-for="element in columns">{{ element }}</td>
     <td>{{ totalDT }}</td>
   </tr>
-  <!-- <p>{{ this.colTotal }}</p> -->
+  
+  <tr>
+    <th>Totals</th>
+    <td v-for="element in colTotal">{{ element }}</td>
+  </tr>
 </template>
