@@ -27,8 +27,27 @@ export default {
     <tr>
       <th v-for="element in headRW">{{ element }}</th>
     </tr>
-
-    <StoreRow v-for="element in store" :store="element" />
-
+    <StoreRow :store="store" />
   </table>
 </template>
+
+<style scoped>
+table * {
+  font-family: 'Varela Round', sans-serif;
+  border: 1px double #020005;
+  padding: 8px;
+  color: plum;
+}
+
+th {
+  font-weight: bold;
+  background-color: #501583;
+}
+
+td {
+  text-align: center;
+
+}
+</style>
+
+ 

@@ -5,13 +5,10 @@ import TheWelcome from './components/TheWelcome.vue'
 import Form from './components/Form.vue'
 import Table from './components/Table.vue'
 
-// const app = createApp(runApp);
-// app.mount('#app');
-// runApp();
 </script>
 
 <template>
-  <h1>Cookies</h1>
+  
 
 <!-- <header>
       <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
