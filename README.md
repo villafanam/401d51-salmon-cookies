@@ -1,29 +1,58 @@
-# salomn-cookies
+# Framework Name (Vue)
 
-This template should help get you started developing with Vue 3 in Vite.
+### Research Conducted By: Marco & Ash
 
-## Recommended IDE Setup
+## Overall Score and Comments
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Score (Out of 10): 6
 
-## Customize configuration
+## General Comments
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This framework has a higher learning curve. It looks similar to React but it uses the some components differently.  
 
-## Project Setup
+## Pros
++ Separates your HTML and JS nicely.
++ It keeps your methods, state organized at the top.
++ It gives you a logic functionality on elements. e.g. v-for, v-bind
 
-```sh
-npm install
+## Cons
++ Higher learning curve.
++ Rendering is different than React.
++ Limitation on where you can use JS restricted us from properly understand the flow of the code.
+
+## Documentation
+It was detailed enough but we didn't have enough time to dive deeper.
+
+## Systems Requirements
+
+We didn't deploy it but overall setup was very easy.
+
+## Ramp-Up Projections
+
+A week to understand the basic functionality but atleast 2 weeks to understand it better.
+
+## Community Support and Adoption levels
+
++ Companies using Vue:
+  + Facebook.
+  + Netflix.
+  + Xiaomi.
+  + Adobe.
+  + The Motley Fool.
+  + Trivago.
+  + Alibaba.
+  + Gitlab.
+
+## Links and Resources
++ [framework](https://vuejs.org/)
++ [docs](https://vuejs.org/guide/introduction.html)
++ [examples/tutorials/Code Demos](https://vuejs.org/examples/#hello-world)
++ [GitHub code repository](https://github.com/villafanam/401d51-salmon-cookies/edit/main/README.md)
++ Operating Instructions
+  Clone the repo and run the following command in your terminal.
+```
+> cd <your-project-name>
+> npm install
+> npm run dev
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
